@@ -1,0 +1,11 @@
+docker build -t todo .
+
+docker run --network test_net \
+  -p 80:80 \
+  -e VUE_APP_HOST=172.20.10.2 \
+  -e DB_HOST=172.28.1.4 \
+  -e DB_PORT=3306 \
+  -e DB_NAME=todo_db_dev \
+  -e DB_USER=todo_user \
+  -e DB_PASSWORD=todo \
+  todo
